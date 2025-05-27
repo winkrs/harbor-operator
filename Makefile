@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing image targets
-IMG ?= goharbor/harbor-operator:dev
+IMG ?= winnerson/harbor-operator:dev
 RELEASE_VERSION ?= 0.0.0-dev
 GIT_COMMIT ?= none
 
@@ -210,7 +210,7 @@ go.sum: go.mod $(GONOGENERATED_SOURCES)
 # Build the docker image
 .PHONY: docker-build
 docker-build:
-	docker build -f Dockerfile -t "$(IMG)" .
+	docker build -f Dockerfile -t "$(IMG)" . --network host
 
 .PHONY: docker-build-multi-arch
 docker-build-multi-arch:

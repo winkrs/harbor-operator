@@ -176,6 +176,7 @@ type UserFlags []string
 // PostgresStatus contains status of the PostgreSQL cluster (running, creation failed etc.).
 type PostgresStatus struct {
 	PostgresClusterStatus string `json:"PostgresClusterStatus"`
+	PostgresClusterStatusNew string `json:"postgresClusterStatus"`
 }
 
 // Options for connection pooler

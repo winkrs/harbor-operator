@@ -51,7 +51,7 @@ func (p *PostgreSQLController) Readiness(ctx context.Context, harborcluster *goh
 		return nil, err
 	}
 
-	if pg.Status.PostgresClusterStatus != PsqlRunningStatus {
+	if pg.Status.PostgresClusterStatus != PsqlRunningStatus && pg.Status.PostgresClusterStatusNew != PsqlRunningStatus {
 		return databaseNotReadyStatus(
 			"Database is not ready",
 			fmt.Sprintf("psql is %s", pg.Status.PostgresClusterStatus),
